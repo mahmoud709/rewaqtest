@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>رؤيتنا ورسالتنا | مركز رواق بغداد</title>
+   <style>
+      /* Global Styles */
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: 'Tajawal', 'Cairo', sans-serif;
+      }
+
+      :root {
+         --primary: #00A6B4;
+         --secondary: #134B5F;
+         --accent: #FFC107;
+         --light: #f8f9fa;
+         --dark: #333;
+         --gray: #6c757d;
+         --light-gray: #f1f5f9;
+         --border: #dee2e6;
+      }
+
+      body {
+         background-color: var(--light);
+         color: var(--dark);
+         line-height: 1.6;
+      }
+
+      .container {
+         width: 100%;
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 15px;
+      }
+
+      /* Header */
+      header {
+         background-color: white;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         position: fixed;
+         width: 100%;
+         top: 0;
+         z-index: 100;
+      }
+
+      .header-top {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 15px 0;
+      }
+
+      .logo {
+         display: flex;
+         align-items: center;
+      }
+
+      .logo img {
+         height: 60px;
+      }
+
+      .logo-text {
+         margin-right: 10px;
+         font-size: 24px;
+         font-weight: bold;
+         color: var(--secondary);
+      }
+
+      .top-nav {
+         display: flex;
+         align-items: center;
+      }
+
+      .lang-switch {
+         background-color: var(--light);
+         color: var(--primary);
+         border: 1px solid var(--primary);
+         padding: 5px 15px;
+         border-radius: 20px;
+         font-weight: bold;
+         margin-left: 20px;
+      }
+
+      .social-icons {
+         display: flex;
+      }
+
+      .social-icons a {
+         margin-left: 15px;
+         color: var(--secondary);
+         font-size: 18px;
+      }
+
+      .search-bar {
+         display: flex;
+         margin-left: 20px;
+      }
+
+      .search-bar input {
+         padding: 8px 15px;
+         border: 1px solid var(--border);
+         border-radius: 4px 0 0 4px;
+         width: 200px;
+      }
+
+      .search-bar button {
+         background-color: var(--primary);
+         color: white;
+         border: none;
+         padding: 8px 15px;
+         border-radius: 0 4px 4px 0;
+         cursor: pointer;
+      }
+
+      .main-nav {
+         display: flex;
+         justify-content: space-between;
+         background-color: var(--secondary);
+         padding: 0 20px;
+      }
+
+      .main-nav ul {
+         display: flex;
+         list-style: none;
+      }
+
+      .main-nav ul li {
+         position: relative;
+      }
+
+      .main-nav ul li a {
+         color: white;
+         display: block;
+         padding: 15px 20px;
+         font-weight: 500;
+         text-decoration: none;
+      }
+
+      .main-nav ul li a:hover {
+         background-color: var(--primary);
+      }
+
+      /* Page Header */
+      .page-header {
+         margin-top: 130px;
+         position: relative;
+         overflow: hidden;
+         padding: 60px 0;
+         background: linear-gradient(to left, rgba(19, 75, 95, 0.9), rgba(0, 166, 180, 0.9)), url('/api/placeholder/1600/800') center/cover no-repeat;
+         color: white;
+         text-align: center;
+         border-radius: 8px;
+      }
+
+      .page-header::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: url('/api/placeholder/100/100') center/30px repeat;
+         opacity: 0.1;
+      }
+
+      .page-title {
+         position: relative;
+         z-index: 1;
+         font-size: 48px;
+         font-weight: 700;
+         margin-bottom: 20px;
+         color: white;
+      }
+
+      /* Content Section */
+      .content-section {
+         padding: 60px 0;
+      }
+
+      .vision-mission-container {
+         display: flex;
+         flex-direction: column;
+         gap: 60px;
+      }
+
+      .section-card {
+         background-color: white;
+         border-radius: 12px;
+         overflow: hidden;
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+         position: relative;
+         padding: 40px;
+      }
+
+      .section-card::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 6px;
+         height: 100%;
+         background-color: var(--primary);
+      }
+
+      .section-title {
+         display: flex;
+         align-items: center;
+         margin-bottom: 30px;
+         position: relative;
+      }
+
+      .section-icon {
+         width: 60px;
+         height: 60px;
+         background-color: var(--light-gray);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-left: 20px;
+         color: var(--primary);
+         font-size: 24px;
+      }
+
+      .section-heading {
+         font-size: 36px;
+         color: var(--primary);
+         position: relative;
+      }
+
+      .section-content {
+         font-size: 18px;
+         line-height: 1.8;
+         color: var(--dark);
+         text-align: justify;
+      }
+
+      .section-content p {
+         margin-bottom: 20px;
+      }
+
+      /* Goals Section */
+      .goals-section {
+         padding: 60px 0;
+         background-color: var(--light-gray);
+      }
+
+      .goals-header {
+         text-align: center;
+         margin-bottom: 50px;
+      }
+
+      .goals-title {
+         font-size: 36px;
+         color: var(--secondary);
+         position: relative;
+         display: inline-block;
+         padding-bottom: 15px;
+      }
+
+      .goals-title::after {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 80px;
+         height: 4px;
+         background-color: var(--primary);
+      }
+
+      .goals-container {
+         margin-top: 40px;
+      }
+
+      .goal-item {
+         display: flex;
+         margin-bottom: 30px;
+         background-color: white;
+         border-radius: 8px;
+         overflow: hidden;
+         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .goal-number {
+         background-color: var(--primary);
+         color: white;
+         font-size: 24px;
+         font-weight: bold;
+         min-width: 80px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .goal-content {
+         padding: 25px;
+         font-size: 18px;
+         line-height: 1.8;
+      }
+
+      /* CTA Section */
+      .cta-section {
+         padding: 80px 0;
+         background: linear-gradient(to left, var(--secondary), var(--primary));
+         color: white;
+         text-align: center;
+         border-radius: 8px;
+         margin: 60px 0;
+      }
+
+      .cta-title {
+         font-size: 36px;
+         margin-bottom: 20px;
+      }
+
+      .cta-text {
+         font-size: 18px;
+         max-width: 800px;
+         margin: 0 auto 30px;
+      }
+
+      .cta-buttons {
+         display: flex;
+         justify-content: center;
+         gap: 20px;
+      }
+
+      .btn {
+         display: inline-block;
+         padding: 12px 30px;
+         border-radius: 30px;
+         font-weight: bold;
+         text-transform: uppercase;
+         text-decoration: none;
+         transition: all 0.3s ease;
+         cursor: pointer;
+      }
+
+      .btn-primary {
+         background-color: white;
+         color: var(--primary);
+      }
+
+      .btn-primary:hover {
+         background-color: var(--accent);
+         color: var(--dark);
+         transform: translateY(-3px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline {
+         border: 2px solid white;
+         color: white;
+      }
+
+      .btn-outline:hover {
+         background-color: white;
+         color: var(--primary);
+         transform: translateY(-3px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Footer */
+      footer {
+         background-color: var(--secondary);
+         color: white;
+         padding: 60px 0 0;
+      }
+
+      .footer-content {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+         gap: 30px;
+         margin-bottom: 40px;
+      }
+
+      .footer-column h3 {
+         color: var(--primary);
+         margin-bottom: 20px;
+         font-size: 18px;
+      }
+
+      .footer-links {
+         list-style: none;
+      }
+
+      .footer-links li {
+         margin-bottom: 10px;
+      }
+
+      .footer-links li a {
+         color: #ddd;
+         text-decoration: none;
+      }
+
+      .footer-links li a:hover {
+         color: var(--primary);
+      }
+
+      .contact-info {
+         margin-bottom: 10px;
+         display: flex;
+         align-items: flex-start;
+      }
+
+      .contact-info i {
+         margin-left: 10px;
+         color: var(--primary);
+      }
+
+      .footer-bottom {
+         background-color: rgba(0, 0, 0, 0.2);
+         padding: 20px 0;
+         text-align: center;
+      }
+
+      .footer-bottom p {
+         font-size: 14px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+         .header-top {
+            flex-direction: column;
+         }
+
+         .top-nav {
+            margin-top: 20px;
+            flex-direction: column;
+            align-items: stretch;
+         }
+
+         .search-bar {
+            width: 100%;
+            margin: 15px 0;
+         }
+
+         .main-nav ul {
+            flex-direction: column;
+         }
+
+         .page-title {
+            font-size: 32px;
+         }
+
+         .section-title {
+            flex-direction: column;
+            text-align: center;
+         }
+
+         .section-icon {
+            margin: 0 0 15px 0;
+         }
+
+         .section-heading {
+            font-size: 28px;
+         }
+
+         .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+         }
+
+         .btn {
+            width: 80%;
+         }
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Header -->
+   <header>
+      <div class="container">
+         <div class="header-top">
+            <div class="logo">
+               <img src="/api/placeholder/120/60" alt="Rewaq Baghdad Center Logo">
+               <div class="logo-text">
+                  <div>REWAQ BAGHDAD CENTER</div>
+                  <div>مركز رواق بغداد</div>
+               </div>
+            </div>
+
+            <div class="top-nav">
+               <div class="search-bar">
+                  <input type="text" placeholder="ابحث هنا...">
+                  <button>
+                     <i class="fas fa-search"></i>
+                  </button>
+               </div>
+
+               <div class="social-icons">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                  <a href="#"><i class="fab fa-whatsapp"></i></a>
+               </div>
+
+               <a href="#" class="lang-switch">English</a>
+            </div>
+         </div>
+      </div>
+
+      <nav class="main-nav">
+         <ul>
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">من نحن</a></li>
+            <li><a href="#">مشاريع المركز</a></li>
+            <li><a href="#">نشاطات المركز</a></li>
+            <li><a href="#">اصدارات خاصة</a></li>
+            <li><a href="#">المركز الإعلامي</a></li>
+            <li><a href="#">طلب عضوية</a></li>
+            <li><a href="#">إتصل بنا</a></li>
+         </ul>
+      </nav>
+   </header>
+
+   <!-- Page Header -->
+   <section class="page-header">
+      <div class="container">
+         <h1 class="page-title">من نحن</h1>
+      </div>
+   </section>
+
+   <!-- Vision & Mission Section -->
+   <section class="content-section">
+      <div class="container">
+         <div class="vision-mission-container">
+            <!-- Vision -->
+            <div class="section-card">
+               <div class="section-title">
+                  <div class="section-icon">
+                     <i class="far fa-eye"></i>
+                  </div>
+                  <h2 class="section-heading">رؤيتنا</h2>
+               </div>
+               <div class="section-content">
+                  <p>والدعم لصناع القرار والمجتمع المدني، بهدف تحقيق إصلاحات فعالة ومستدامة في السياسة العامة بالعراق.
+                     يطمح المركز إلى أن يكون منصة للحوار البناء وأن يساهم في بناءمجتمع أكثر وعياً وقدرة على مواجهة
+                     التحديات من كل</p>
+               </div>
+            </div>
+
+            <!-- Mission -->
+            <div class="section-card">
+               <div class="section-title">
+                  <div class="section-icon">
+                     <i class="fas fa-bullseye"></i>
+                  </div>
+                  <h2 class="section-heading">رسالتنا</h2>
+               </div>
+               <div class="section-content">
+                  <p>والدعم لصناع القرار والمجتمع المدني، بهدف تحقيق إصلاحات فعالة ومستدامة في السياسة العامة بالعراق.
+                     يطمح المركز إلى أن يكون منصة للحوار البناء وأن يساهم في بناءمجتمع أكثر وعياً وقدرة على مواجهة
+                     التحديات من كل</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Goals Section -->
+   <section class="goals-section">
+      <div class="container">
+         <div class="goals-header">
+            <h2 class="goals-title">اهدافنا</h2>
+         </div>
+
+         <div class="goals-container">
+            <div class="goal-item">
+               <div class="goal-number">1</div>
+               <div class="goal-content">
+                  إصلاحات فعالة ومستدامة في السياسة العامة في العراق. ونأمل أن نركز على أن نكون منصة للحوار والبناء
+                  والمساعدة في بناء مجتمع أكثر وعياً وقدرة على مواجهة التحديات من خلاله
+               </div>
+            </div>
+
+            <div class="goal-item">
+               <div class="goal-number">2</div>
+               <div class="goal-content">
+                  يعمل "مركز رواق بغداد للدراسات والبحوث الاستراتيجية" على تحقيق عدد من الأهداف من بينها:
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- CTA Section -->
+   <section class="cta-section">
+      <div class="container">
+         <h2 class="cta-title">انضم إلينا في بناء عراق أفضل</h2>
+         <p class="cta-text">شارك معنا في تحقيق رؤيتنا ورسالتنا من خلال الانضمام إلى عضوية المركز أو المشاركة في
+            فعالياتنا</p>
+         <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">طلب عضوية</a>
+            <a href="#" class="btn btn-outline">تواصل معنا</a>
+         </div>
+      </div>
+   </section>
+
+   <!-- Footer -->
+   <footer>
+      <div class="container">
+         <div class="footer-content">
+            <div class="footer-column">
+               <h3>عن المركز</h3>
+               <p style="color: #ddd; line-height: 1.6;">مركز رواق بغداد هو مؤسسة فكرية مستقلة غير ربحية تسعى لتعزيز
+                  الحوار وإثراء الفكر السياسي والاجتماعي في العراق من خلال الدراسات والبحوث والإصدارات والفعاليات.</p>
+            </div>
+
+            <div class="footer-column">
+               <h3>روابط سريعة</h3>
+               <ul class="footer-links">
+                  <li><a href="#">الرئيسية</a></li>
+                  <li><a href="#">من نحن</a></li>
+                  <li><a href="#">مشاريع المركز</a></li>
+                  <li><a href="#">نشاطات المركز</a></li>
+                  <li><a href="#">اصدارات خاصة</a></li>
+                  <li><a href="#">المركز الإعلامي</a></li>
+               </ul>
+            </div>
+
+            <div class="footer-column">
+               <h3>اتصل بنا</h3>
+               <div class="contact-info">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>بغداد، العراق</span>
+               </div>
+               <div class="contact-info">
+                  <i class="fas fa-phone"></i>
+                  <span>07835774081</span>
+               </div>
+               <div class="contact-info">
+                  <i class="fas fa-envelope"></i>
+                  <span>dar@rewaqbaghdad.org</span>
+               </div>
+               <div class="contact-info">
+                  <i class="fas fa-globe"></i>
+                  <span>www.rewaqbaghdad.org</span>
+               </div>
+            </div>
+
+            <div class="footer-column">
+               <h3>النشرة البريدية</h3>
+               <p style="color: #ddd; margin-bottom: 15px;">اشترك في نشرتنا البريدية للحصول على آخر الأخبار والفعاليات
+               </p>
+               <form>
+                  <input type="email" placeholder="البريد الإلكتروني"
+                     style="width: 100%; padding: 10px; margin-bottom: 10px; border: none; border-radius: 4px;">
+                  <button
+                     style="width: 100%; padding: 10px; background-color: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer;">اشتراك</button>
+               </form>
+            </div>
+         </div>
+      </div>
+
+      <div class="footer-bottom">
+         <div class="container">
+            <p>© 2025 مركز رواق بغداد للسياسات العامة. جميع الحقوق محفوظة</p>
+         </div>
+      </div>
+   </footer>
+
+   <!-- Font Awesome -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+
+</html>
